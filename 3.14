@@ -1,0 +1,45 @@
+using System;
+
+namespace ForSumOfFactorials
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Сумма факториалов";
+            
+            Console.Write("Введите n (1 < n <= 10): ");
+            int n = int.Parse(Console.ReadLine());
+            
+            if (n <= 1 || n > 10)
+            {
+                Console.WriteLine("Ошибка: n должно быть от 2 до 10");
+                Console.ReadKey();
+                return;
+            }
+            
+            int sum = 0;
+            
+            Console.WriteLine($"\nВычисление 1! + 2! + ... + {n}!\n");
+            
+            for (int i = 1; i <= n; i++)
+            {
+                int factorial = 1;
+                
+                for (int j = 1; j <= i; j++)
+                {
+                    factorial *= j;
+                }
+                
+                sum += factorial;
+                
+                Console.WriteLine($"{i}! = {factorial}");
+            }
+            
+            Console.WriteLine($"\nСумма = {sum}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
