@@ -1,0 +1,31 @@
+using System;
+
+namespace ForNumberRepeated
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Вывод числа N раз";
+            
+            Console.Write("Введите число для вывода: ");
+            int number = int.Parse(Console.ReadLine());
+            
+            Console.Write("Введите количество повторений: ");
+            int count = int.Parse(Console.ReadLine());
+            
+            Console.Write("\nРезультат: ");
+            
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write(number + " ");
+            }
+            
+            Console.WriteLine();
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
+}
