@@ -1,0 +1,57 @@
+using System;
+
+namespace CycleExamples
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. Примеры циклов";
+            
+            Console.WriteLine("=== Пример цикла while ===");
+            Console.WriteLine("Найти сумму чисел от 1 до 5");
+            
+            int i = 1, sum = 0;
+            while (i <= 5)
+            {
+                sum = sum + i; // или sum += i;
+                i++;
+            }
+            Console.WriteLine($"Sum = {sum}\n");
+            
+            Console.WriteLine("=== Пример цикла do-while ===");
+            Console.WriteLine("Ввод пароля");
+            
+            string Pass = "Hello";
+            string str;
+            
+            do
+            {
+                Console.Write("Пароль: ");
+                str = Console.ReadLine();
+                
+                if (str != Pass)
+                {
+                    Console.WriteLine("Неверный пароль! Попробуйте снова.\n");
+                }
+                
+            } while (str != Pass);
+            
+            Console.WriteLine("Верно! Пароль принят.\n");
+            
+            Console.WriteLine("=== Пример цикла for ===");
+            Console.WriteLine("Найти сумму чисел из диапазона 0-1000, кратных 5");
+            
+            int Sum = 0;
+            for (int j = 0; j <= 1000; j += 5)
+            {
+                Sum += j;
+            }
+            
+            Console.WriteLine($"Сумма чисел, кратных 5, от 0 до 1000 = {Sum}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
