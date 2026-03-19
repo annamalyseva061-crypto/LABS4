@@ -1,0 +1,36 @@
+using System;
+
+namespace ForSkier
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Лыжник";
+            
+            double firstDay = 10;
+            double total = firstDay;
+            
+            Console.WriteLine($"День 1: {firstDay} км\n");
+            
+            for (int day = 2; day <= 10; day++)
+            {
+                double previousDay = firstDay * Math.Pow(1.1, day - 2);
+                double currentDay = previousDay * 1.1;
+                
+                Console.WriteLine($"День {day}: {currentDay:F2} км");
+                total += currentDay;
+                
+                if (day == 7)
+                {
+                    Console.WriteLine($"\nСуммарный путь за первые 7 дней: {total:F2} км");
+                }
+            }
+            
+            Console.WriteLine($"\nСуммарный путь за 10 дней: {total:F2} км");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
