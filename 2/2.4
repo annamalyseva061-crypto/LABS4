@@ -1,0 +1,31 @@
+using System;
+
+namespace DoWhileRandomUntilSeven
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. do-while - Случайные числа до 7";
+            
+            Random rnd = new Random();
+            int number;
+            int attempts = 0;
+            
+            Console.WriteLine("Генерация случайных чисел от 1 до 10 до появления числа 7:\n");
+            
+            do
+            {
+                number = rnd.Next(1, 11);
+                attempts++;
+                Console.WriteLine($"Попытка {attempts}: {number}");
+                
+            } while (number != 7);
+            
+            Console.WriteLine($"\nЧисло 7 получено! Потребовалось попыток: {attempts}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
