@@ -1,0 +1,49 @@
+using System;
+
+namespace ForSumOfReciprocalFactorials
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Сумма обратных факториалов";
+            
+            Console.Write("Введите n (1 < n <= 10): ");
+            int n = int.Parse(Console.ReadLine());
+            
+            if (n <= 1 || n > 10)
+            {
+                Console.WriteLine("Ошибка: n должно быть от 2 до 10");
+                Console.ReadKey();
+                return;
+            }
+            
+            double sum = 1.0;
+            
+            Console.WriteLine($"\nВычисление 1 + 1/1! + 1/2! + ... + 1/{n}!\n");
+            Console.WriteLine($"1! = 1, член = 1/1 = 1");
+            
+            for (int i = 1; i <= n; i++)
+            {
+                int factorial = 1;
+                
+                for (int j = 1; j <= i; j++)
+                {
+                    factorial *= j;
+                }
+                
+                double term = 1.0 / factorial;
+                sum += term;
+                
+                Console.WriteLine($"{i}! = {factorial}, член = 1/{factorial} = {term:F6}");
+            }
+            
+            Console.WriteLine($"\nСумма = {sum:F6}");
+            Console.WriteLine($"Приближенное значение e = {Math.E:F6}");
+            Console.WriteLine($"Разница: {Math.Abs(Math.E - sum):F6}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
