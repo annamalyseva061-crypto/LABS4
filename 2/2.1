@@ -1,0 +1,37 @@
+using System;
+
+namespace DoWhileSumUntilZero
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. do-while - Сумма чисел до 0";
+            
+            int number;
+            int sum = 0;
+            int count = 0;
+            
+            Console.WriteLine("Вводите числа (для завершения введите 0):");
+            
+            do
+            {
+                Console.Write($"Число {count + 1}: ");
+                number = int.Parse(Console.ReadLine());
+                
+                if (number != 0)
+                {
+                    sum += number;
+                    count++;
+                }
+                
+            } while (number != 0);
+            
+            Console.WriteLine($"\nСумма введенных чисел: {sum}");
+            Console.WriteLine($"Количество чисел: {count}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
