@@ -1,0 +1,71 @@
+using System;
+
+namespace WhileDigits
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. While - Вывод цифр числа";
+            
+            Console.Write("Введите целое число N: ");
+            int N = int.Parse(Console.ReadLine());
+            
+            int originalN = N; 
+            Console.Write($"Цифры числа {originalN}: ");
+            
+            if (N < 0)
+            {
+                Console.Write("- ");
+                N = -N;
+            }
+            
+            if (N == 0)
+            {
+                Console.Write("0");
+            }
+            else
+            {
+                int temp = N;
+                int count = 0;
+                while (temp > 0)
+                {
+                    temp /= 10;
+                    count++;
+                }
+                
+                int divisor = (int)Math.Pow(10, count - 1);
+                while (divisor > 0)
+                {
+                    int digit = N / divisor;
+                    Console.Write(digit + " ");
+                    N %= divisor;
+                    divisor /= 10;
+                }
+            }
+            
+            Console.WriteLine();
+            
+            N = originalN;
+            if (N < 0) N = -N;
+            
+            Console.Write($"Цифры числа {originalN} (справа налево): ");
+            if (N == 0)
+            {
+                Console.Write("0");
+            }
+            else
+            {
+                while (N > 0)
+                {
+                    int digit = N % 10;
+                    Console.Write(digit + " ");
+                    N /= 10;
+                }
+            }
+            
+            Console.Write("\n\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
