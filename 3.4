@@ -1,0 +1,29 @@
+using System;
+
+namespace ForSpecialFormat
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Специальный формат вывода";
+            
+            // а) 10 10.4, 11 11.4, ..., 25 25.4
+            Console.WriteLine("а) Числа от 10 до 25:");
+            for (int i = 10; i <= 25; i++)
+            {
+                Console.WriteLine($"{i}   {i}.4");
+            }
+            
+            // б) 25 25.5 24.8, 26 26.5 25.8, ..., 35 35.5 34.8
+            Console.WriteLine("\nб) Числа от 25 до 35:");
+            for (int i = 25; i <= 35; i++)
+            {
+                Console.WriteLine($"{i}   {i}.5   {i - 1}.8");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
