@@ -1,0 +1,51 @@
+using System;
+
+namespace WhileDecimalToBase5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. While - Перевод в пятеричную систему";
+            
+            Console.Write("Введите целое число N в десятичной системе: ");
+            int N = int.Parse(Console.ReadLine());
+            
+            int originalN = N;
+            
+            if (N < 0)
+            {
+                Console.WriteLine("Отрицательные числа не обрабатываются.");
+                Console.ReadKey();
+                return;
+            }
+            
+            if (N == 0)
+            {
+                Console.WriteLine($"{originalN} в десятичной СС = 0 в пятеричной СС");
+            }
+            else
+            {
+                string base5 = "";
+                int temp = N;
+                
+                Console.WriteLine($"\nПроцесс перевода числа {N}:");
+                int step = 1;
+                
+                while (temp > 0)
+                {
+                    int remainder = temp % 5;
+                    base5 = remainder + base5;
+                    Console.WriteLine($"Шаг {step}: {temp} / 5 = {temp / 5}, остаток = {remainder}");
+                    temp /= 5;
+                    step++;
+                }
+                
+                Console.WriteLine($"\n{originalN} в десятичной СС = {base5} в пятеричной СС");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
