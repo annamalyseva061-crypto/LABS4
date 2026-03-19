@@ -1,0 +1,36 @@
+using System;
+
+namespace WhileDecimalToBinary
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. While - Перевод в двоичную систему";
+            
+            Console.Write("Введите целое число N в десятичной системе: ");
+            int N = int.Parse(Console.ReadLine());
+            
+            int originalN = N;
+            
+            bool isNegative = false;
+            if (N < 0)
+            {
+                isNegative = true;
+                N = -N;
+            }
+            
+            // Особый случай для 0
+            if (N == 0)
+            {
+                Console.WriteLine($"{originalN} в десятичной СС = 0 в двоичной СС");
+            }
+            else
+            {
+                string binary = "";
+                int temp = N;
+                
+                Console.WriteLine($"\nПроцесс перевода числа {N}:");
+                int step = 1;
+                
+               
