@@ -1,0 +1,37 @@
+using System;
+
+namespace WhileBankDeposit
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. While - Накопление вклада";
+            
+            Console.Write("Введите начальную сумму вклада (N рублей): ");
+            double N = double.Parse(Console.ReadLine());
+            
+            double target = 100000; 
+            double current = N;
+            int months = 0;
+            
+            Console.WriteLine($"\nНачальный вклад: {N} руб.");
+            Console.WriteLine($"Цель: {target} руб.");
+            Console.WriteLine($"Ежемесячное увеличение: 2%\n");
+            
+            while (current < target)
+            {
+                months++;
+                double increase = current * 0.02;
+                current += increase;
+                Console.WriteLine($"Месяц {months}: {current:F2} руб. (прирост: {increase:F2} руб.)");
+            }
+            
+            Console.WriteLine($"\nЧерез {months} месяцев гражданин накопит {current:F2} руб.");
+            Console.WriteLine($"Необходимая сумма {target} руб. будет достигнута.");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
