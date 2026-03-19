@@ -1,0 +1,46 @@
+using System;
+
+namespace ForStrangeHusband
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Странный муж";
+            
+            Console.WriteLine("Расстояние от дома до работы: 1 км\n");
+            
+            double position = 0;
+            double totalPath = 0;
+            int direction = 1;
+            
+            Console.WriteLine("Движение мужчины:\n");
+            
+            for (int stage = 1; stage <= 100; stage++)
+            {
+                double step = 1.0 / stage;
+                
+                if (direction == 1)
+                {
+                    position += step;
+                    Console.WriteLine($"Этап {stage}: прошел {step:F4} км к работе, позиция: {position:F4} км от дома");
+                }
+                else
+                {
+                    position -= step;
+                    Console.WriteLine($"Этап {stage}: прошел {step:F4} км к дому, позиция: {position:F4} км от дома");
+                }
+                
+                totalPath += step;
+                direction *= -1;
+            }
+            
+            Console.WriteLine($"\nа) После 100-го этапа мужчина находится на расстоянии {Math.Abs(position):F4} км от дома");
+            Console.WriteLine($"   {' '}{(position > 0 ? "по направлению к работе" : "по направлению к дому")}");
+            Console.WriteLine($"б) Общий пройденный путь: {totalPath:F4} км");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
