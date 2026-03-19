@@ -1,0 +1,46 @@
+using System;
+
+namespace DoWhileAverage
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. do-while - Среднее арифметическое";
+            
+            int number;
+            int sum = 0;
+            int count = 0;
+            
+            Console.WriteLine("Вводите числа (для завершения введите 0):");
+            
+            do
+            {
+                Console.Write($"Число {count + 1}: ");
+                number = int.Parse(Console.ReadLine());
+                
+                if (number != 0)
+                {
+                    sum += number;
+                    count++;
+                }
+                
+            } while (number != 0);
+            
+            if (count > 0)
+            {
+                double average = (double)sum / count;
+                Console.WriteLine($"\nСумма чисел: {sum}");
+                Console.WriteLine($"Количество чисел: {count}");
+                Console.WriteLine($"Среднее арифметическое: {average:F2}");
+            }
+            else
+            {
+                Console.WriteLine("\nНе было введено ни одного числа");
+            }
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
