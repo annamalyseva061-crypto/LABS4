@@ -1,0 +1,45 @@
+using System;
+
+namespace WhileBinaryToDecimal
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. While - Перевод из двоичной в десятичную";
+            
+            Console.Write("Введите двоичное число N: ");
+            string binaryInput = Console.ReadLine();
+            
+            int decimalNumber = 0;
+            int power = 0;
+            
+            Console.WriteLine($"\nПеревод числа {binaryInput} в десятичную систему:");
+            
+            for (int i = binaryInput.Length - 1; i >= 0; i--)
+            {
+                char digitChar = binaryInput[i];
+                
+                if (digitChar != '0' && digitChar != '1')
+                {
+                    Console.WriteLine("Ошибка: число должно содержать только цифры 0 и 1");
+                    Console.ReadKey();
+                    return;
+                }
+                
+                int digit = int.Parse(digitChar.ToString());
+                int contribution = digit * (int)Math.Pow(2, power);
+                
+                Console.WriteLine($"Цифра {digit} на позиции {power} дает вклад: {digit} * 2^{power} = {contribution}");
+                
+                decimalNumber += contribution;
+                power++;
+            }
+            
+            Console.WriteLine($"\n{binaryInput} в двоичной СС = {decimalNumber} в десятичной СС");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
