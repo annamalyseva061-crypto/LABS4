@@ -1,0 +1,33 @@
+using System;
+
+namespace DoWhileValidRange
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. do-while - Ввод числа в диапазоне";
+            
+            int number;
+            
+            Console.WriteLine("Введите число в диапазоне от 1 до 100 включительно");
+            
+            do
+            {
+                Console.Write("Ваше число: ");
+                number = int.Parse(Console.ReadLine());
+                
+                if (number < 1 || number > 100)
+                {
+                    Console.WriteLine("Ошибка! Число должно быть от 1 до 100. Попробуйте снова.");
+                }
+                
+            } while (number < 1 || number > 100);
+            
+            Console.WriteLine($"\nСпасибо! Вы ввели корректное число: {number}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
