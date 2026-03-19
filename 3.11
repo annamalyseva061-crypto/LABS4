@@ -1,0 +1,45 @@
+using System;
+
+namespace ForHarvest
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Урожайность ячменя";
+            
+            double area = 100;
+            double yieldPerHectar = 20;
+            
+            Console.WriteLine("Год 1 (первый год):");
+            Console.WriteLine($"  Площадь: {area} га");
+            Console.WriteLine($"  Урожайность: {yieldPerHectar} ц/га");
+            Console.WriteLine($"  Урожай: {area * yieldPerHectar} ц\n");
+            
+            double totalHarvest = area * yieldPerHectar;
+            
+            for (int year = 2; year <= 8; year++)
+            {
+                area *= 1.05;
+                yieldPerHectar *= 1.02;
+                double harvest = area * yieldPerHectar;
+                totalHarvest += harvest;
+                
+                Console.WriteLine($"Год {year}:");
+                Console.WriteLine($"  Площадь: {area:F2} га");
+                Console.WriteLine($"  Урожайность: {yieldPerHectar:F2} ц/га");
+                Console.WriteLine($"  Урожай: {harvest:F2} ц\n");
+                
+                if (year >= 4 && year <= 7)
+                {
+                    Console.WriteLine($"  (Площадь в {year}-й год: {area:F2} га)");
+                }
+            }
+            
+            Console.WriteLine($"Урожай, собранный за первые 6 лет: {totalHarvest:F2} ц");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
