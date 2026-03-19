@@ -1,0 +1,33 @@
+using System;
+
+namespace ForPowerSeries
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. for - Степенной ряд";
+            
+            Console.Write("Введите x: ");
+            double x = double.Parse(Console.ReadLine());
+            
+            double sum = 0;
+            double term = x;
+            
+            Console.WriteLine($"\nВычисление суммы x + x^3/3 + ... + x^11/11");
+            Console.WriteLine($"x = {x}\n");
+            
+            for (int i = 1; i <= 11; i += 2)
+            {
+                term = Math.Pow(x, i) / i;
+                sum += term;
+                Console.WriteLine($"Член {i}: x^{i}/{i} = {Math.Pow(x, i):F4}/{i} = {term:F4}");
+            }
+            
+            Console.WriteLine($"\nСумма ряда = {sum:F6}");
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
