@@ -1,0 +1,51 @@
+using System;
+
+namespace DoWhileFibonacci
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Работа 4. do-while - Числа Фибоначчи";
+            
+            Console.Write("Введите предельное значение M: ");
+            int M = int.Parse(Console.ReadLine());
+            
+            int a = 0;
+            int b = 1;
+            
+            Console.WriteLine($"\nПоследовательность Фибоначчи до первого числа, превышающего {M}:");
+            
+            if (M >= 0)
+            {
+                Console.Write(a + " ");
+            }
+            
+            if (M >= 1)
+            {
+                Console.Write(b + " ");
+            }
+            
+            do
+            {
+                int next = a + b;
+                
+                if (next > M)
+                {
+                    break;
+                }
+                
+                Console.Write(next + " ");
+                
+                a = b;
+                b = next;
+                
+            } while (true);
+            
+            Console.WriteLine();
+            
+            Console.Write("\nНажми любую клавишу...");
+            Console.ReadKey();
+        }
+    }
+}
